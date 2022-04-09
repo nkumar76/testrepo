@@ -1,0 +1,193 @@
+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
+
+
+ot@localhost ~]# which git
+/bin/git
+[root@localhost ~]# git --help
+usage: git [--version] [--help] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   fetch      Download objects and refs from another repository
+   grep       Print lines matching a pattern
+   init       Create an empty Git repository or reinitialize an existing one
+   log        Show commit logs
+   merge      Join two or more development histories together
+   mv         Move or rename a file, a directory, or a symlink
+   pull       Fetch from and merge with another repository or a local branch
+   push       Update remote refs along with associated objects
+   rebase     Forward-port local commits to the updated upstream head
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+   show       Show various types of objects
+   status     Show the working tree status
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+'git help -a' and 'git help -g' lists available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+[root@localhost ~]# git branch
+fatal: Not a git repository (or any of the parent directories): .git
+[root@localhost ~]# git show
+fatal: Not a git repository (or any of the parent directories): .git
+[root@localhost ~]# git init
+Initialized empty Git repository in /root/.git/
+[root@localhost ~]# git show
+fatal: bad default revision 'HEAD'
+[root@localhost ~]# git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.bash_logout
+#	.bash_profile
+#	.bashrc
+#	.cache/
+#	.cshrc
+#	.tcshrc
+#	.xauthL0CU6r
+#	anaconda-ks.cfg
+#	original-ks.cfg
+nothing added to commit but untracked files present (use "git add" to track)
+[root@localhost ~]# 
+[root@localhost ~]# 
+[root@localhost ~]# git branch
+[root@localhost ~]# mkdir myproject
+[root@localhost ~]# cd myproject/
+[root@localhost myproject]# ll
+total 0
+[root@localhost myproject]# git init
+Initialized empty Git repository in /root/myproject/.git/
+[root@localhost myproject]# vi test1
+[root@localhost myproject]# 
+[root@localhost myproject]# git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	test1
+nothing added to commit but untracked files present (use "git add" to track)
+[root@localhost myproject]# git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	test1
+nothing added to commit but untracked files present (use "git add" to track)
+[root@localhost myproject]# git add
+Nothing specified, nothing added.
+Maybe you wanted to say 'git add .'?
+[root@localhost myproject]# git add .
+[root@localhost myproject]# git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   test1
+#
+[root@localhost myproject]# git commit -m "first commit"
+[master (root-commit) 821c269] first commit
+ Committer: root <root@localhost.localdomain>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test1
+[root@localhost myproject]# git status
+# On branch master
+nothing to commit, working directory clean
+[root@localhost myproject]# git log
+commit 821c269974c25269e7945c57f1f4be4fecdbd17e
+Author: root <root@localhost.localdomain>
+Date:   Sat Apr 9 09:27:01 2022 -0700
+
+    first commit
+[root@localhost myproject]# git show 821c269
+commit 821c269974c25269e7945c57f1f4be4fecdbd17e
+Author: root <root@localhost.localdomain>
+Date:   Sat Apr 9 09:27:01 2022 -0700
+
+    first commit
+
+diff --git a/test1 b/test1
+new file mode 100644
+index 0000000..ae1a9da
+--- /dev/null
++++ b/test1
+@@ -0,0 +1 @@
++Community-driven free software effort focused around the goal of providing a rich base platform for open source communities to build upon.
+[root@localhost myproject]# https://github.com/nkumar76/testrepo.git^C
+[root@localhost myproject]# git remote add origin https://github.com/nkumar76/testrepo.git
+[root@localhost myproject]# git push -u origin master
+Username for 'https://github.com': nkhcsc@gmail.com
+Password for 'https://nkhcsc@gmail.com@github.com': 
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/nkumar76/testrepo.git/'
+[root@localhost myproject]# git push -u origin master
+Username for 'https://github.com': nkumar76
+Password for 'https://nkumar76@github.com': 
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/nkumar76/testrepo.git/'
+[root@localhost myproject]# git push -u origin master
+Username for 'https://github.com': nkumar76
+Password for 'https://nkumar76@github.com': 
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/nkumar76/testrepo.git/'
+[root@localhost myproject]# git push -u origin master
+Username for 'https://github.com': nkhcsc@gmail.com
+Password for 'https://nkhcsc@gmail.com@github.com': 
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/nkumar76/testrepo.git/'
+[root@localhost myproject]# git push -u origin master
+Username for 'https://github.com': nkhcsc@gmail.com
+Password for 'https://nkhcsc@gmail.com@github.com': 
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/nkumar76/testrepo.git/'
+[root@localhost myproject]# git push -u origin master
+Username for 'https://github.com': nkhcsc@gmail.com
+Password for 'https://nkhcsc@gmail.com@github.com': 
+Counting objects: 3, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 309 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/nkumar76/testrepo.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+[root@localhost myproject]# vim command_output_1
+[root@localhost myproject]# 
+
